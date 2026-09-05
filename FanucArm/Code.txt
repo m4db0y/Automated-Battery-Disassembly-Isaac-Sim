@@ -1,0 +1,136 @@
+from isaacsim.robot_motion.cumotion import (
+    load_cumotion_robot,
+    CumotionWorldInterface,
+    GraphBasedMotionPlanner
+)
+
+from isaacsim.core.prims import SingleArticulation
+from isaacsim.core.utils.types import ArticulationAction
+
+import omni.kit.app
+import numpy as np
+import time
+
+##########################################################
+# LOAD CUMOTION ROBOT
+##########################################################
+
+cumotion_robot = load_cumotion_robot(
+    directory=r"D:\BatteryDT\FanucArm",
+    urdf_filename="Fanuc.urdf",
+    xrdf_filename="Fanuc.xrdf"
+)
+
+world = CumotionWorldInterface()
+
+planner = GraphBasedMotionPlanner(
+    cumotion_robot=cumotion_robot,
+    cumotion_world_interface=world,
+
+    # Use J6_link for now since this is the one that was working.
+    tool_frame="J6_link"
+)
+
+##########################################################
+# LOAD ISAAC ROBOT
+##########################################################
+
+robot = SingleArticulation("/World/Fanuc")
+robot.initialize()
+
+##########################################################
+# APP
+##########################################################
+
+app = omni.kit.app.get_app()
+
+##########################################################
+# TOOL ORIENTATION
+##########################################################
+
+DOWN_QUAT = np.array([
+    0.0,
+    -0.70710678,
+    0.0,
+    0.70710678
+])
+
+##########################################################
+# MOVE FUNCTION
+##########################################################
+
+def move_to_xyz(x, y, z):
+
+    target = np.array([x, y, z])
+
+    print("\nPlanning to:", target)
+
+    robot.initialize()
+
+    q0 = robot.get_joint_positions()
+
+    print("Current joints:")
+    print(q0)
+
+    traj = planner.plan_to_pose_target(
+        q0,
+        target,
+        DOWN_QUAT
+    )
+
+    if traj is None:
+        print("Planning failed")
+        return
+
+    jt = traj.to_minimal_time_joint_trajectory(
+
+        max_velocities=[
+            3.66519116,
+            3.66519116,
+            4.62512252,
+            7.33038233,
+            7.85398110,
+            12.56637061
+        ],
+
+        max_accelerations=[
+            10.0,
+            10.0,
+            10.0,
+            10.0,
+            10.0,
+            10.0
+        ],
+
+        robot_joint_space=[
+            "J1","J2","J3",
+            "J4","J5","J6"
+        ],
+
+        active_joints=[
+            "J1","J2","J3",
+            "J4","J5","J6"
+        ]
+    )
+
+    print("Trajectory duration:", jt.duration)
+
+    dt = 1.0 / 60.0
+    t = 0.0
+
+    while t <= jt.duration:
+
+        state = jt.get_target_state(t)
+
+        robot.apply_action(
+            ArticulationAction(
+                joint_positions=state.joints.positions
+            )
+        )
+
+        app.update()
+        time.sleep(dt)
+
+        t += dt
+
+    print("Finished")

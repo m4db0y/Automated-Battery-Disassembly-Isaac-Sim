@@ -1,0 +1,71 @@
+format: "xrdf"
+
+format_version: 2.0
+
+default_joint_positions: 
+  joint_a1: 0.0
+  joint_a2: 0.0001
+  joint_a3: 0.0
+  joint_a4: 0.0
+  joint_a5: -0.0
+  joint_a6: 0.0
+
+cspace: 
+  joint_names: 
+    - "joint_a1"
+    - "joint_a2"
+    - "joint_a3"
+    - "joint_a4"
+    - "joint_a5"
+    - "joint_a6"
+  acceleration_limits: [10.0, 10.0, 10.0, 10.0, 10.0, 10.0]
+  jerk_limits: [10000.0, 10000.0, 10000.0, 10000.0, 10000.0, 10000.0]
+
+world_collision: 
+  geometry: "auto_generated_collision_sphere_group"
+
+self_collision: 
+  geometry: "auto_generated_collision_sphere_group"
+  ignore: 
+    base_link: 
+      - "link_1"
+    link_1: 
+      - "Link1"
+      - "link_2"
+    link_2: 
+      - "link_3"
+    link_3: 
+      - "link_4"
+    link_4: 
+      - "link_5"
+    link_5: 
+      - "link_6"
+    link_6: 
+      - "tool0"
+    Link1: 
+      - "link_2"
+
+geometry: 
+  auto_generated_collision_sphere_group: 
+    spheres: 
+      base_link: 
+        - center: [-0.068, -0.013, 0.166]
+          radius: 0.4652
+      link_1: 
+        - center: [0.129, -0.021, 0.299]
+          radius: 0.3982
+      link_2: 
+        - center: [0.003, -0.143, 0.147]
+          radius: 0.3187
+      link_3: 
+        - center: [-0.006, 0.216, -0.037]
+          radius: 0.2242
+      link_4: 
+        - center: [0.176, 0.009, -0.0]
+          radius: 0.1278
+      link_5: 
+        - center: [0.078, 0.016, 0.002]
+          radius: 0.1133
+      link_6: 
+        - center: [0.019, 0.002, -0.011]
+          radius: 0.0285

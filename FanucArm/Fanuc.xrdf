@@ -1,0 +1,81 @@
+format: "xrdf"
+
+format_version: 2.0
+
+default_joint_positions: 
+  J1: -0.0
+  J2: 0.0019
+  J3: -0.0018
+  J4: 0.0
+  J5: -0.0
+  J6: -0.0
+
+cspace: 
+  joint_names: 
+    - "J1"
+    - "J2"
+    - "J3"
+    - "J4"
+    - "J5"
+    - "J6"
+  acceleration_limits: [10.0, 10.0, 10.0, 10.0, 10.0, 10.0]
+  jerk_limits: [10000.0, 10000.0, 10000.0, 10000.0, 10000.0, 10000.0]
+
+world_collision: 
+  geometry: "auto_generated_collision_sphere_group"
+
+self_collision: 
+  geometry: "auto_generated_collision_sphere_group"
+  ignore: 
+    robot_base: 
+      - "J1_link"
+    J1_link: 
+      - "J2_link"
+    J2_link: 
+      - "J3_link"
+    J3_link: 
+      - "J4_link"
+    J4_link: 
+      - "J5_link"
+    J5_link: 
+      - "J6_link"
+
+geometry: 
+  auto_generated_collision_sphere_group: 
+    spheres: 
+      robot_base: 
+        - center: [0.0, 0.0, 0.127]
+          radius: 0.1754
+      J1_link: 
+        - center: [0.0, 0.0, 0.0]
+          radius: 0.18
+      J2_link: 
+        - center: [-0.04, -0.183, 0.063]
+          radius: 0.1149
+      J3_link: 
+        - center: [0.138, -0.003, 0.108]
+          radius: 0.151
+      J4_link: 
+        - center: [1.021, -0.039, -0.003]
+          radius: 0.0614
+      J5_link: 
+        - center: [0.027, -0.013, 0.011]
+          radius: 0.0423
+      J6_link: 
+        - center: [0.097, -0.0, -0.0]
+          radius: 0.0498
+tool_frames:
+  - J6_link
+
+frames:
+  screwdriver_tip:
+    parent: J6_link
+    position:
+      - 0.165366
+      - 0.0
+      - -0.000626
+    quaternion:
+      - 0.0
+      - 0.0
+      - 0.0
+      - 1.0

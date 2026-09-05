@@ -1,0 +1,89 @@
+import numpy as np
+import time
+import omni.kit.app
+from isaacsim.core.utils.types import ArticulationAction
+
+app = omni.kit.app.get_app()
+
+DOWN_QUAT = np.array([
+    0.0,
+    -0.70710678,
+    0.0,
+    0.70710678
+])
+
+def move_to_xyz(x, y, z):
+
+    target = np.array([x, y, z])
+
+    print("\nPlanning to:", target)
+
+    robot.initialize()
+
+    q0 = robot.get_joint_positions()
+
+    print("Current joints:")
+    print(q0)
+
+    traj = planner.plan_to_pose_target(
+        q0,
+        target,
+        DOWN_QUAT
+    )
+
+    if traj is None:
+        print("Planning failed")
+        return
+
+    jt = traj.to_minimal_time_joint_trajectory(
+
+        max_velocities=[
+            3.66519116,
+            3.66519116,
+            4.62512252,
+            7.33038233,
+            7.85398110,
+            12.56637061
+        ],
+
+        max_accelerations=[
+            10.0,
+            10.0,
+            10.0,
+            10.0,
+            10.0,
+            10.0
+        ],
+
+        robot_joint_space=[
+            "J1","J2","J3",
+            "J4","J5","J6"
+        ],
+
+        active_joints=[
+            "J1","J2","J3",
+            "J4","J5","J6"
+        ]
+    )
+
+    print("Duration =", jt.duration)
+
+    dt = 1.0/60.0
+    t = 0.0
+
+    while t <= jt.duration:
+
+        state = jt.get_target_state(t)
+
+        robot.apply_action(
+            ArticulationAction(
+                joint_positions=state.joints.positions
+            )
+        )
+
+        app.update()
+        time.sleep(dt)
+
+        t += dt
+
+    print("Finished")

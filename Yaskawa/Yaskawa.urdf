@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot name="NEX35_C00">
+  <link name="base_link">
+    <inertial>
+      <origin xyz="-0.02300878 0.00116254 0.09104525" rpy="0 0 0"/>
+      <mass value="33.61141205"/>
+      <inertia ixx="0.72116661" ixy="-0.00477778" ixz="-0.02033925" iyy="0.8658879" iyz="0.00081811" izz="1.09421668"/>
+    </inertial>
+    <visual name="mesh">
+      <geometry>
+        <mesh filename="./meshes/mesh.obj"/>
+      </geometry>
+    </visual>
+    <visual name="mesh">
+      <geometry>
+        <mesh filename="./meshes/mesh_1.obj"/>
+      </geometry>
+    </visual>
+    <visual name="collision_sphere_1">
+      <origin xyz="0.03916671 -0.04233852 0.13476828" rpy="0 0 0"/>
+      <geometry>
+        <sphere radius="0.17050873"/>
+      </geometry>
+    </visual>
+    <collision name="mesh">
+      <geometry>
+        <mesh filename="./meshes/mesh_1.obj"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="link_1_s">
+    <inertial>
+      <origin xyz="0.03070187 0.00282687 -0.24685828" rpy="0 0 0"/>
+      <mass value="134.96643066"/>
+      <inertia ixx="5.28358401" ixy="-0.03705335" ixz="0.95107976" iyy="5.55557763" iyz="0.13617027" izz="1.9850589"/>
+    </inertial>
+    <visual name="mesh">
+      <geometry>
+        <mesh filename="./meshes/mesh_2.obj"/>
+      </geometry>
+    </visual>
+    <visual name="mesh">
+      <geometry>
+        <mesh filename="./meshes/mesh_3.obj"/>
+      </geometry>
+    </visual>
+    <visual name="collision_sphere_1">
+      <origin xyz="0.07800443 0.00328271 -0.02989646" rpy="0 0 0"/>
+      <geometry>
+        <sphere radius="0.1636173"/>
+      </geometry>
+    </visual>
+    <collision name="mesh">
+      <geometry>
+        <mesh filename="./meshes/mesh_3.obj"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="link_2_l">
+    <inertial>
+      <origin xyz="0.31760067 0.02104144 0.09409457" rpy="0 0 0"/>
+      <mass value="98.20669556"/>
+      <inertia ixx="1.94440323" ixy="0.21051477" ixz="-0.60194229" iyy="12.35123036" iyz="-0.0067843" izz="11.42621144"/>
+    </inertial>
+    <visual name="mesh">
+      <geometry>
+        <mesh filename="./meshes/mesh_4.obj"/>
+      </geometry>
+    </visual>
+    <visual name="mesh">
+      <geometry>
+        <mesh filename="./meshes/mesh_5.obj"/>
+      </geometry>
+    </visual>
+    <visual name="collision_sphere_1">
+      <origin xyz="0.3956691 -0.04985584 0.12346559" rpy="-0.0000001 -0.0000001 -0.0000001"/>
+      <geometry>
+        <sphere radius="0.11779892"/>
+      </geometry>
+    </visual>
+    <collision name="mesh">
+      <geometry>
+        <mesh filename="./meshes/mesh_5.obj"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="link_3_u">
+    <inertial>
+      <origin xyz="0.05993856 -0.02645832 0.02211809" rpy="0 0 0"/>
+      <mass value="58.57447815"/>
+      <inertia ixx="0.82820903" ixy="-0.16955938" ixz="-0.12062057" iyy="0.92208073" iyz="-0.10796745" izz="1.10329125"/>
+    </inertial>
+    <visual name="mesh">
+      <geometry>
+        <mesh filename="./meshes/mesh_6.obj"/>
+      </geometry>
+    </visual>
+    <visual name="mesh">
+      <geometry>
+        <mesh filename="./meshes/mesh_7.obj"/>
+      </geometry>
+    </visual>
+    <visual name="collision_sphere_1">
+      <origin xyz="-0.01227033 0.01342185 0.0194843" rpy="0.00000005 -0.00000008 0"/>
+      <geometry>
+        <sphere radius="0.15831567"/>
+      </geometry>
+    </visual>
+    <collision name="mesh">
+      <geometry>
+        <mesh filename="./meshes/mesh_7.obj"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="link_4_r">
+    <inertial>
+      <origin xyz="0.00036324 0.00629478 -0.54667819" rpy="0 0 0"/>
+      <mass value="33.79233932"/>
+      <inertia ixx="2.98316132" ixy="-0.00050498" ixz="-0.00008621" iyy="2.98393844" iyz="0.04391191" izz="0.15832693"/>
+    </inertial>
+    <visual name="mesh">
+      <geometry>
+        <mesh filename="./meshes/mesh_8.obj"/>
+      </geometry>
+    </visual>
+    <visual name="mesh">
+      <geometry>
+        <mesh filename="./meshes/mesh_9.obj"/>
+      </geometry>
+    </visual>
+    <visual name="collision_sphere_1">
+      <origin xyz="-0.00123275 -0.00942386 0.60527015" rpy="-0.00000007 -0.00000016 0.00000004"/>
+      <geometry>
+        <sphere radius="0.12568256"/>
+      </geometry>
+    </visual>
+    <collision name="mesh">
+      <geometry>
+        <mesh filename="./meshes/mesh_9.obj"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="link_5_b">
+    <inertial>
+      <origin xyz="0.00056188 -0.02061731 0.01488633" rpy="0 0 0"/>
+      <mass value="10.80194855"/>
+      <inertia ixx="0.04580622" ixy="-0.00055651" ixz="-0.00002335" iyy="0.03052108" iyz="0.00378398" izz="0.04579398"/>
+    </inertial>
+    <visual name="mesh">
+      <geometry>
+        <mesh filename="./meshes/mesh_10.obj"/>
+      </geometry>
+    </visual>
+    <visual name="mesh">
+      <geometry>
+        <mesh filename="./meshes/mesh_11.obj"/>
+      </geometry>
+    </visual>
+    <visual name="collision_sphere_1">
+      <origin xyz="0.01289669 -0.00728905 0.01191205" rpy="0.00000015 -0.00000006 -0.00000014"/>
+      <geometry>
+        <sphere radius="0.09656746"/>
+      </geometry>
+    </visual>
+    <collision name="mesh">
+      <geometry>
+        <mesh filename="./meshes/mesh_11.obj"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="link_6_t">
+    <inertial>
+      <origin xyz="0.00003926 -0.00003926 -0.01719011" rpy="0 0 0"/>
+      <mass value="0.52598953"/>
+      <inertia ixx="0.0005721" ixy="0.00000055" ixz="0.00000097" iyy="0.00057194" iyz="-0.00000009" izz="0.00057805"/>
+    </inertial>
+    <visual name="Mesh">
+      <origin xyz="-0.00000001 0.00000001 -0.02779128" rpy="0 1.57079614 -1.57079622"/>
+      <geometry>
+        <mesh filename="./meshes/Mesh_12.obj" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+    <visual name="mesh">
+      <geometry>
+        <mesh filename="./meshes/mesh_13.obj"/>
+      </geometry>
+    </visual>
+    <visual name="mesh">
+      <geometry>
+        <mesh filename="./meshes/mesh_14.obj"/>
+      </geometry>
+    </visual>
+    <visual name="collision_sphere_1">
+      <origin xyz="0.01554303 0.01571065 0.01241821" rpy="0.00000006 0.00000012 0.00000011"/>
+      <geometry>
+        <sphere radius="0.04748178"/>
+      </geometry>
+    </visual>
+    <collision name="mesh">
+      <geometry>
+        <mesh filename="./meshes/mesh_14.obj"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="joint_1_s" type="revolute">
+    <origin xyz="0 0 0.56" rpy="0 0 0"/>
+    <parent link="base_link"/>
+    <child link="link_1_s"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-2.96705946" upper="2.96705946" velocity="3.14159265"/>
+    <dynamics friction="0"/>
+    <!-- isaac:source_drive {"armature": 0.0, "drive": {"damping": 10.0, "max_force": 7480.0, "stiffness": 1000000.0, "target_position": 0.0}, "instance": "angular", "source": "physx"} -->
+  </joint>
+  <joint name="joint_2_l" type="revolute">
+    <origin xyz="0.1 0 0" rpy="0 -1.57079624 -1.57079627"/>
+    <parent link="link_1_s"/>
+    <child link="link_2_l"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-1.57079633" upper="2.44346069" velocity="3.14159265"/>
+    <dynamics friction="0"/>
+    <!-- isaac:source_drive {"armature": 0.0, "drive": {"damping": 10.0, "max_force": 5500.0, "stiffness": 1000000.0, "target_position": 0.0}, "instance": "angular", "source": "physx"} -->
+  </joint>
+  <joint name="joint_3_u" type="revolute">
+    <origin xyz="0.90000008 -0.00000014 0.00000004" rpy="-3.14159022 -0.0000001 -0.0000001"/>
+    <parent link="link_2_l"/>
+    <child link="link_3_u"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-1.43116985" upper="3.14159265" velocity="3.49065824"/>
+    <dynamics friction="0"/>
+    <!-- isaac:source_drive {"armature": 0.0, "drive": {"damping": 10.0, "max_force": 2500.0, "stiffness": 1000000.0, "target_position": 0.0}, "instance": "angular", "source": "physx"} -->
+  </joint>
+  <joint name="joint_4_r" type="revolute">
+    <origin xyz="0.18499982 -1.04699997 0" rpy="-1.57079622 -0.00000008 0"/>
+    <parent link="link_3_u"/>
+    <child link="link_4_r"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-3.49065824" upper="3.49065824" velocity="6.10865238"/>
+    <dynamics friction="0"/>
+    <!-- isaac:source_drive {"armature": 0.0, "drive": {"damping": 10.0, "max_force": 612.5, "stiffness": 1000000.0, "target_position": 0.0}, "instance": "angular", "source": "physx"} -->
+  </joint>
+  <joint name="joint_5_b" type="revolute">
+    <origin xyz="-0.0000001 0.00000015 0.00000021" rpy="1.57079619 -0.00000016 0.00000004"/>
+    <parent link="link_4_r"/>
+    <child link="link_5_b"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-0.61086517" upper="3.75245763" velocity="6.10865238"/>
+    <dynamics friction="0"/>
+    <!-- isaac:source_drive {"armature": 0.0, "drive": {"damping": 10.0, "max_force": 247.5, "stiffness": 1000000.0, "target_position": 0.0}, "instance": "angular", "source": "physx"} -->
+  </joint>
+  <joint name="joint_6_t" type="revolute">
+    <origin xyz="-0.13 0.00000002 -0.00000001" rpy="0 1.57079613 -0.00000014"/>
+    <parent link="link_5_b"/>
+    <child link="link_6_t"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-6.28318531" upper="6.28318531" velocity="6.98131648"/>
+    <dynamics friction="0"/>
+    <!-- isaac:source_drive {"armature": 0.0, "drive": {"damping": 10.0, "max_force": 125.0, "stiffness": 1000000.0, "target_position": 0.0}, "instance": "angular", "source": "physx"} -->
+  </joint>
+</robot>
