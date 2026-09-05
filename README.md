@@ -1,7 +1,7 @@
 # Automated Battery Disassembly Digital Twin
 
 ## Overview
-This project simulates a fully automated, physics-accurate robotics digital twin designed for EV battery disassembly. It leverages NVIDIA Isaac Sim, integrating CuMotion trajectory planning, custom Python state machines, and vision-based task distribution to control Fanuc, Yaskawa, and Kuka robotic arms in real time.
+This project simulates a fully automated, physics-accurate robotics simulation designed for EV battery disassembly. It leverages NVIDIA Isaac Sim, integrating CuMotion trajectory planning, custom Python state machines, and vision-based task distribution to control Fanuc, Yaskawa, and Kuka robotic arms in real time.
 
 
 ## System Workflow & Architecture
